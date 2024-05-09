@@ -92,8 +92,8 @@ require 'update_slots.php';
                       <th>Name</th>
                       <th>Slot</th>
                       <th>Price</th>
-                      <th>Delete </th>
-                      <th>Edit </th>
+                      <th>Edit</th>
+                      <th>Delete</th>
                       </tr>
 <?php
 $sel="select * from parkings";

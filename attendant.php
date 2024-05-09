@@ -95,9 +95,9 @@ session_start();
           <div class="col-sm-10">
               <select name="location" class="form-control">
                 <option value="">Select Street</option>
-                 <option value="Tudor">Tudor</option>
-                 <option value="Kizingo">Kizingo</option>
-                 <option value="Tononoka">Tononoka</option>
+                 <option value="sec-11">sec-11</option>
+                 <option value="sec-12">sec-12</option>
+                 <option value="sec-10">sec-10</option>
               </select>
           </div>
           </div>
@@ -111,6 +111,13 @@ session_start();
             <input type="text" class="form-control" placeholder="Password" name="password">
           </div>
         </div>
+
+        <div class="form-group">
+    <div class="col-sm-10">
+        <input type="file" class="form-control" name="image">
+    </div>
+   </div>
+   
         <div class="form-group">
           <div class="col-sm-offset-6 col-sm-10">
             <button type="submit" class="btn btn-default" name="sub">Submit</button>

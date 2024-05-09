@@ -1,7 +1,15 @@
 <?php
 require 'mysqlConnect.php';
-session_start();
+// session_start();
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,9 +93,9 @@ session_start();
           <div class="col-sm-10">
               <select name="street" class="form-control">
                 <option value="">Select Street</option>
-                 <option value="Tudor">Tudor</option>
-                 <option value="Kizingo">Kizingo</option>
-                 <option value="Tononoka">Tononoka</option>
+                 <option value="sec-11">sec-11</option>
+                 <option value="sec-12">sec-12</option>
+                 <option value="sec-10">sec-10</option>
               </select>
           </div>
         </div>

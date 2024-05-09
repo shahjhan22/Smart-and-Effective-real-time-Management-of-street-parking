@@ -62,6 +62,28 @@ else {
 .fa-circle {
   color: green;
 }
+
+#flaskAppContainer {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 735px;
+            height: 385px;
+            left: 680px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        #flaskAppFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* transform: scale(1.9); /* Adjust the zoom level as needed */
+            /* transform-origin: 0 0; */ */
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -95,20 +117,29 @@ else {
 
              <li class="list-group-item" >
                <select class="form-control" onchange="filter_park()" id="city">
-                 <option value="Mombasa">Mombasa</option>
+                 <option value="Old Faridabad">Old Faridabad</option>
                </select>
              </li>
 
              <li class="list-group-item">
-               <select class="form-control" onchange="filter_park()" id="street">
+               <select class="form-control" onchange="openFlaskApp();filter_park()" id="street">
                  <option value="">----[Search Street]----</option>
-                 <option value="Tudor">Tudor</option>
-                 <option value="Kizingo">Kizingo</option>
-                 <option value="Tononoka">Tononoka</option>
+                 <option value="sec-11">sec-11</option>
+                 <option value="sec-10">sec-10</option>
+                 <option value="sec-12">sec-12</option>
                </select>
              </li>
 
              <li class="list-group-item" id="requests"><a><span class="glyphicon glyphicon-envelope"></span> Notifications</a></li>
+
+
+             <!-- Button to open Flask app -->
+<!-- <button onclick="openFlaskApp()">Open Flask Application</button> -->
+
+<!-- Container for Flask app iframe -->
+<div id="flaskAppContainer">
+    <iframe id="flaskAppFrame" src="" allowfullscreen></iframe>
+</div>
 
             
            </ul>
@@ -143,6 +174,8 @@ $("#home").load("parkings/parkings.php");
 
   }
 
+  
+
   $("#requests").click(function(){
     $("#home").load("feedback/requests.php");  
   });
@@ -150,6 +183,26 @@ $("#home").load("parkings/parkings.php");
   $("#receipt").click(function(){
     $("#home").load("receipt/new.php");  
   });
+
+  function openFlaskApp() {
+    var selectedStreet = document.getElementById('street').value;
+    var flaskAppFrame = document.getElementById('flaskAppFrame');
+
+    if (selectedStreet === 'sec-11') {
+        var flaskAppUrl = 'http://localhost:5000/videofeed?street=' + encodeURIComponent(selectedStreet);
+        flaskAppFrame.src = flaskAppUrl;
+        flaskAppFrame.style.display = 'block'; // Show the frame
+        flaskAppFrame.contentWindow.document.body.innerHTML = ''; // Clear any previous message
+    } else {
+        flaskAppFrame.src = ''; // Clear the source to close the video
+        flaskAppFrame.style.display = 'block'; // Show the frame
+    }
+}
+
+
+
+
+
 
     </script>
   </body>

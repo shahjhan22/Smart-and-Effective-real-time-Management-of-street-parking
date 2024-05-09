@@ -90,8 +90,8 @@ require 'update_slots.php';
                                       <th>Lname </th>
                                       <th>mobile_no</th>
                                       <th>Street</th>
-                                      <th>Delete </th>
                                       <th>Edit </th>
+                                      <th>Delete </th>
                                       </tr>
                 <?php
                 $sel="select * from attendant";

@@ -36,6 +36,52 @@ else {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        /* Styles for navigation button */
+        .navigation-button {
+            display: block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            max-width: 400px;
+        }
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+
+ 
   </head>
 
   <body>
@@ -73,8 +119,34 @@ else {
 
               </ul>
               <ul>
-                  <li><a  href="request.php">Requests</a></li>
-              </ul>
+        <li><a href="request.php" class="navigation-button">Requests</a></li>
+    </ul>
+    <ul>
+    <li><a href="#" class="navigation-button" onclick="openPopup()">Payments</a></li>
+
+    
+
+    </ul>
+
+
+<div class="popup" id="contactPopup">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <h2>Payments Scanner</h2>
+    <!-- PHP code to echo the image path -->
+    <?php
+    $imagePath = "download.png";
+    ?>
+    <!-- Display the image using PHP -->
+    <img src="<?php echo $imagePath; ?>" alt="Image">
+    <!-- Close button -->
+    <br><button type="button" onclick="closePopup()">Close</button></br>
+</div>
+
+
+<!-- Popup overlay -->
+<div class="popup-overlay" id="popupOverlay"></div>
+
+
               <!-- sidebar menu end-->
           </div>
       </aside>
@@ -190,7 +262,21 @@ else {
             var to = $("#" + id).data("to");
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
-    </script>
+        function openPopup() {
+    var popup = document.getElementById("contactPopup");
+    var overlay = document.getElementById("popupOverlay");
+    popup.style.display = "block";
+    overlay.style.display = "block";
+}
+
+// Function to close popup contact form
+function closePopup() {
+    var popup = document.getElementById("contactPopup");
+    var overlay = document.getElementById("popupOverlay");
+    popup.style.display = "none";
+    overlay.style.display = "none";
+}
+</script>
 
 
   </body>

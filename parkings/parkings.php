@@ -43,6 +43,9 @@ while ($parking = mysqli_fetch_array($parkings_result)) {
   $parking_price = $parking['price'];
   $parking_remaining = $parking['remaining_slots'];
 ?>
+
+
+
 <div class="panel panel-default parking_text">
   <div class="panel-body">
     <h4 class="Head"><?=$parking_name; ?></h4>
@@ -53,9 +56,13 @@ while ($parking = mysqli_fetch_array($parkings_result)) {
 
     </ul>
     <button class="btn btn-default" data-backdrop="false" type="button" data-toggle="modal" data-target="#reserve<?=$parking_id ; ?>">select Now!!</button>
+    
 
   </div>
 </div>
+
+
+
 
 <div class="modal fade parking_text" id="reserve<?=$parking_id ; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -67,9 +74,10 @@ while ($parking = mysqli_fetch_array($parkings_result)) {
       <div class="modal-body">
         <ul class="list-group">
           <li class="list-group-item"><span class="glyphicon glyphicon-home"></span> <?=$parking_name; ?></li>
-          <li class="list-group-item"><span class="glyphicon glyphicon-tag"></span> <?=$parking_remaining; ?> Remaining Slots</li>
-          <li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span> Ksh. <?=$parking_price; ?> Per Slot Per Hour</li>
-          <li class="list-group-item " ><span class="glyphicon">Ksh. </span> <p class="total" id="total<?=$parking_id; ?>"><?=$parking_slot; ?> </p></li>
+          <li class="list-group-item"><span class="glyphicon glyphicon-tag"></span> <?=$parking_remaining; ?>  Slots</li>
+          <li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span><?=$parking_price; ?> ₹ Per Slot Per Hour</li>
+          <!-- <li class="list-group-item " ><span class="glyphicon">Total</span> <p class="total" id="total<?=$parking_id; ?>"><?=$parking_slot; ?> </p></li> -->
+          <li class="list-group-item " ><span class="glyphicon">Total</span> <p class="total" id="total<?=$parking_id; ?>"> </p></li>
 
           <li class="list-group-item">
             <div class="input-group">
@@ -184,8 +192,13 @@ while ($parking = mysqli_fetch_array($parkings_result)) {
     </ul>
     <button class="btn btn-default" type="button" data-backdrop="false" data-toggle="modal" data-target="#reserve<?=$parking_id ; ?>">select Now!!</button>
 
+
   </div>
 </div>
+
+
+
+
 
 <div class="modal fade parking_text" id="reserve<?=$parking_id ; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -200,8 +213,9 @@ while ($parking = mysqli_fetch_array($parkings_result)) {
 
           <li class="list-group-item"><span class="glyphicon glyphicon-tag"></span> <?=$parking_remaining; ?> Remaining Slots</li>
 
-          <li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span> Ksh. <?=$parking_price; ?> Per Slot Per Hour</li>
-          <li class="list-group-item " ><span class="glyphicon">Ksh. </span> <p class="total" id="total<?=$parking_id; ?>"><?=$parking_slot; ?> </p></li>
+          <li class="list-group-item"><span class="glyphicon glyphicon-credit-card"></span><?=$parking_price; ?> ₹ Per Slot Per Hour</li>
+          <li class="list-group-item " ><span class="glyphicon">Total</span> <p class="total" id="total<?=$parking_id; ?>"> </p></li>
+          <!-- <li class="list-group-item " ><span class="glyphicon">Total</span> <p class="total" id="total<?=$parking_id; ?>"><?=$parking_slot; ?></p></li> -->
 
           </li>
           <li class="list-group-item">
@@ -283,6 +297,7 @@ $("#select<?=$parking_id; ?>").click(function(){
 });
 
 
+
 </script>
 <?php
 
@@ -291,3 +306,4 @@ $("#select<?=$parking_id; ?>").click(function(){
 }
 
  ?>
+

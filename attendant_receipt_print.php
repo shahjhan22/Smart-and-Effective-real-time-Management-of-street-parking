@@ -56,8 +56,7 @@ while ($request = mysqli_fetch_array($res)) {
     $when = $request['time'];
     $street = $request['street'];
     $parking_id = $request['parking_id'];
-
-
+   
 
 
 
@@ -75,11 +74,14 @@ $ttotal = $d *60*24 + $h * 60 + $m;
 $totalt = round($ttotal / 60);
 $exceeded_time =round(abs($totalt-$hours));
 $min_cost = $cost/60;
-if ($ttotal>60) {
+$hours_in_minutes = $hours * 60;
+if ($ttotal>$hours_in_minutes) {
     $charge = (float)($totalt * $cost);
 } else {
     $charge =  "500/=" ;
 }
+
+
 
 
     if($stat=='requested'){
@@ -96,7 +98,8 @@ if ($ttotal>60) {
 
 <tr>
 <td>Parking Name:</td>
-<td><?=$parking; ?> Parking</td>
+<!-- <td><?=$parking; ?> Parking</td> -->
+<td><?=$parking; ?></td>
 </tr>
 
 <tr>
@@ -106,12 +109,13 @@ if ($ttotal>60) {
 
 <tr>
 <td>Parking location:</td> 
-<td><?=$location; ?> Area</td>
+<!-- <td><?=$location; ?> Area</td> -->
+<td><?=$location; ?></td>
 </tr>
 
 <tr>
 <td>Parking street:</td>
- <td><?=$street; ?> Street</td>
+ <td><?=$street; ?></td>
  </tr>
 
 <tr>
@@ -126,13 +130,15 @@ if ($ttotal>60) {
 
 <tr>
 <td>Amount Charged:</td> 
-<td>Ksh. <?=$charge; ?></td>
+<td>₹  <?=$charge; ?></td>
 </tr>
 
 <tr>
 <td>Request Time:</td>
 <td><?=$when; ?> </td>
 </tr>
+
+
 
 <tr>
 <td>Status:</td>
@@ -149,6 +155,7 @@ if($totalt >= $hours){
 
  ?> </td>
 </tr>
+
 <?php    
 
 }  
