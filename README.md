@@ -5,3 +5,6 @@ walking distance to your destination from your vehicle, safety of the vehicle,
  payment for the service among others. If one happens to be a stranger in town 
  it gets more difficult to operate around the town. The system solves all this 
  parking cycle issues.
+
+ [![Watch the video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)]([https://youtu.be/VIDEO_ID](https://gemoo.com/tools/upload-video/share/681225623058694144?codeId=M01yrW02AldBN&card=681225617425743872&origin=videolinkgenerator))
+
