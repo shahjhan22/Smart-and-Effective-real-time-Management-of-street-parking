@@ -6,5 +6,8 @@ walking distance to your destination from your vehicle, safety of the vehicle,
  it gets more difficult to operate around the town. The system solves all this 
  parking cycle issues.
 
- [Watch the demo of Project](https://gemoo.com/tools/upload-video/share/681225623058694144?codeId=M01yrW02AldBN&card=681225617425743872&origin=videolinkgenerator)
+
+https://github.com/user-attachments/assets/1d5dbd05-a777-40e3-85c2-528de25e523e
+
+
 
